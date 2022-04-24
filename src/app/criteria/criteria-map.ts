@@ -3,7 +3,10 @@ import { AbstractCriterionComponent } from './abstract-criterion/abstract-criter
 import { AgeCriterionComponent } from './age-criterion/age-criterion.component';
 import { StayCriterionComponent } from './stay-criterion/stay-criterion.component';
 
-type criteriaMapType = Record<CriteriaNames, Type<AbstractCriterionComponent>>;
+type criteriaMapType = Record<
+  CriteriaNames,
+  Type<AbstractCriterionComponent<any>>
+>;
 
 const CRITERIA_MAP: criteriaMapType = {
   age: AgeCriterionComponent,

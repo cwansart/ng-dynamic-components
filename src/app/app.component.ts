@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { CriteriaNames } from './criteria/criteria-map';
 import { v4 as uuidv4 } from 'uuid';
-
-type CompList = {
-  type: CriteriaNames;
-  uuid: string;
-};
+import { CriteriaDataTypes } from './criteria/criteria-data-types';
 
 @Component({
   selector: 'my-app',
@@ -14,10 +10,10 @@ type CompList = {
 export class AppComponent {
   availableCriteria = Object.keys(CriteriaNames);
 
-  components: CompList[] = [
-    { type: CriteriaNames.age, uuid: uuidv4() },
-    { type: CriteriaNames.stay, uuid: uuidv4() },
-    { type: CriteriaNames.age, uuid: uuidv4() },
+  components: CriteriaDataTypes[] = [
+    { type: CriteriaNames.age, uuid: uuidv4(), data: {} },
+    { type: CriteriaNames.stay, uuid: uuidv4(), data: {} },
+    { type: CriteriaNames.age, uuid: uuidv4(), data: {} },
   ];
 
   removeCriterion(uuid: string) {
@@ -34,6 +30,7 @@ export class AppComponent {
         {
           uuid: uuidv4(),
           type: CriteriaNames[criterion],
+          data: {},
         },
       ];
     }

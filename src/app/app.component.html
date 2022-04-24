@@ -1,0 +1,14 @@
+<div *ngFor="let component of components">
+  <app-criterion-wrapper
+    (onRemove)="removeCriterion($event)"
+    [componentType]="component.type"
+    [uuid]="component.uuid"
+  ></app-criterion-wrapper>
+</div>
+<hr />
+<button
+  *ngFor="let criteria of availableCriteria"
+  (click)="addCriterion(criteria)"
+>
+  add "{{ criteria }}"
+</button>
